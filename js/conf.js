@@ -75,20 +75,17 @@ $('#btn-search').click(() => {
     </div>`).appendTo('#profile-info');
     
     })
-        .fail(function () {
+        .fail(function (data) {
             console.log("error");
            
-            /*aguarda.hide();
+            aguarda.hide();
             informations.hide();
-            profile.hide();
+            //profile.hide();
 
-            error.show();*/
-            
-            //$('#lblerror').appendTo(`<span>${data.status}</span>`);
-           
+            $('#lblerror').append(`<span>${data.status}</span>`);
+            error.show();
         })
         .always(function () {
             console.log("completo");
-        });
-        
+        });        
     });
