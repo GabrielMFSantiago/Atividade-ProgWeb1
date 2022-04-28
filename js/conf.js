@@ -14,8 +14,10 @@ $('#btn-search').click(() => {
     var user = $('#search').val();
     profile.empty();
     error.hide();
+    aguarda.show().fadeIn(3000).delay(8);
 
     $.getJSON(urlGit + user, (data) => {
+        
         //formatação da data
         var dataCriada = new Date(data.created_at);
         var atualizadoEm = new Date (data.updated_at);
@@ -26,7 +28,7 @@ $('#btn-search').click(() => {
         
         
         console.log("success");
-        aguarda.fadeIn(500).fadeOut(500);
+        //aguarda.fadeIn(500).fadeOut(500);
         
         $(`<div class="col-md-3">
         <img 
@@ -87,5 +89,6 @@ $('#btn-search').click(() => {
         })
         .always(function () {
             console.log("completo");
+            aguarda.hide();
         });        
     });
